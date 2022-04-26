@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TelecommandeTest {
 
     /**
-     * test du constructeur de Telecommande
+     * test ajouter lampe 1
      */
     @Test
     public void test_ajout_lampe() {
@@ -26,7 +26,7 @@ public class TelecommandeTest {
     }
 
     /**
-     * test du constructeur de Telecommande
+     * test ajouteur lampe 2
      */
     @Test
     public void test_ajout_2_lampes() {
@@ -48,26 +48,18 @@ public class TelecommandeTest {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
+    /**
+     *  test activer lampe 1
+     */
     @Test
     public void test_activation_lampe_0() {
         // preparation des donnees
         Telecommande t = new Telecommande();
         Lampe l1 = new Lampe("lampe1");
+        t.ajouterLampe(l1);
 
         // methode testee
-        t.ajouterLampe(l1);
+        t.activerLampe(0);
 
         // verification
         boolean res = t.getLampe(0).isAllume();
@@ -75,23 +67,55 @@ public class TelecommandeTest {
         assertEquals("lampe1: On\n", t.toString(), "erreur methode");
     }
 
+    /**
+     * test activer lampe 2
+     */
     @Test
     public void test_activation_lampe_1() {
         // preparation des donnees
         Telecommande t = new Telecommande();
         Lampe l1 = new Lampe("lampe1");
         Lampe l2 = new Lampe("lampe2");
-
-        // methode testee
         t.ajouterLampe(l1);
         t.ajouterLampe(l2);
+
+        // methode testee
         t.activerLampe(1);
 
         // verification
-        boolean res = t.getLampe(1).isAllume();
-        assertTrue(res, "la lampe en position 1 devrait etre allumee");
+        boolean res1 = t.getLampe(0).isAllume();
+        boolean res2 = t.getLampe(1).isAllume();
+        assertFalse(res1, "la lampe en position 0 devrait etre eteinte");
+        assertTrue(res2, "la lampe en position 1 devrait etre allumee");
         assertEquals("lampe1: Off\nlampe2: On\n", t.toString(), "erreur methode");
     }
+
+
+    /**
+     * test activerTout
+     */
+    @Test
+    public void test_activerTout() {
+        // preparation des donnees
+        Telecommande t = new Telecommande();
+        Lampe l1 = new Lampe("lampe1");
+        Lampe l2 = new Lampe("lampe2");
+        t.ajouterLampe(l1);
+        t.ajouterLampe(l2);
+
+        // methode testee
+        t.activerTout();
+
+        // verificarion
+        boolean res1 = t.getLampe(0).isAllume();
+        boolean res2 = t.getLampe(1).isAllume();
+
+        assertTrue(res1, "la lampe en position 0 devrait etre allumee");
+        assertTrue(res2, "la lampe en position 1 devrait etre allumee");
+
+    }
+
+
 
 
 
