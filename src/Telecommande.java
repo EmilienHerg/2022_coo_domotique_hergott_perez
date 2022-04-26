@@ -1,9 +1,5 @@
 public class Telecommande {
 
-<<<<<<< HEAD
-    
-=======
-
     public Telecommande() {
         throw new Error (" code non ecrit ");
     }
@@ -32,5 +28,4 @@ public class Telecommande {
         throw new Error (" code non ecrit ");
     }
 
->>>>>>> 41387edb9949ec27529eac5d0f6e6c1da8545c54
 }
