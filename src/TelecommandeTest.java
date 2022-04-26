@@ -48,26 +48,15 @@ public class TelecommandeTest {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
     @Test
     public void test_activation_lampe_0() {
         // preparation des donnees
         Telecommande t = new Telecommande();
         Lampe l1 = new Lampe("lampe1");
+        t.ajouterLampe(l1);
 
         // methode testee
-        t.ajouterLampe(l1);
+        t.activerLampe(0);
 
         // verification
         boolean res = t.getLampe(0).isAllume();
@@ -81,16 +70,27 @@ public class TelecommandeTest {
         Telecommande t = new Telecommande();
         Lampe l1 = new Lampe("lampe1");
         Lampe l2 = new Lampe("lampe2");
-
-        // methode testee
         t.ajouterLampe(l1);
         t.ajouterLampe(l2);
+
+        // methode testee
         t.activerLampe(1);
 
         // verification
         boolean res = t.getLampe(1).isAllume();
         assertTrue(res, "la lampe en position 1 devrait etre allumee");
         assertEquals("lampe1: Off\nlampe2: On\n", t.toString(), "erreur methode");
+    }
+
+    @Test
+    public void test_activation_lampe_inexistante() throws Exception {
+        // preparation des donnees
+        Telecommande t = new Telecommande();
+
+        // verification
+        assertThrows(NullPointerException.class, () -> {
+            t.activerLampe(2);
+        }, "la lampe existe sur la telecommande" );
     }
 
 
