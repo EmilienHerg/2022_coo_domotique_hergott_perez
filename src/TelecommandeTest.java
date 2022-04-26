@@ -90,6 +90,17 @@ public class TelecommandeTest {
         assertEquals("lampe1: Off\nlampe2: On\n", t.toString(), "erreur methode");
     }
 
+    @Test
+    public void test_activation_lampe_inexistante() throws Exception {
+        // preparation des donnees
+        Telecommande t = new Telecommande();
+
+        // verification
+        assertThrows(NullPointerException.class, () -> {
+            t.activerLampe(2);
+        }, "la lampe existe sur la telecommande" );
+    }
+
 
     /**
      * test activerTout
@@ -114,11 +125,5 @@ public class TelecommandeTest {
         assertTrue(res2, "la lampe en position 1 devrait etre allumee");
 
     }
-
-
-
-
-
-
-
+    
 }
