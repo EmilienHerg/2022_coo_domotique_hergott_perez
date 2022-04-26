@@ -1,11 +1,24 @@
 public class Telecommande {
 
+    private Lampe[] lampes;
+
     public Telecommande() {
-        throw new Error (" code non ecrit ");
+        this.lampes = null;
     }
 
     public void ajouterLampe(Lampe l) {
-        throw new Error (" code non ecrit ");
+        Lampe[] tab = new Lampe[this.lampes.length + 1];
+        if (this.lampes != null) {
+            int i = 0;
+            while (i < this.lampes.length) {
+               tab[i] = this.lampes[i];
+               i++;
+            }
+            tab[i] = l;
+        } else {
+            tab[0] = l;
+        }
+        this.lampes = tab;
     }
 
     public void activerLampe(int indiceLampe) {
