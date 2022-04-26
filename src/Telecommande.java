@@ -17,15 +17,21 @@ public class Telecommande {
     }
 
     public void activerTout() {
-        throw new Error (" code non ecrit ");
+        int taille = this.lampes.size();
+        for (int i = 0; i < taille; i++) {
+            this.activerLampe(i);
+        }
     }
 
     public String toString() {
-        throw new Error (" code non ecrit ");
+        String s = "";
+        int taille = this.lampes.size();
+        for (int i = 0; i < taille; i++) {
+            s += lampes[i].nom + ": " +;
+        }
     }
 
     public Lampe getLampe(int inciceLampe){
         throw new Error (" code non ecrit ");
     }
-
 }
