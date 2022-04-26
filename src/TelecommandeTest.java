@@ -125,5 +125,5 @@ public class TelecommandeTest {
         assertTrue(res2, "la lampe en position 1 devrait etre allumee");
 
     }
-    
+
 }
