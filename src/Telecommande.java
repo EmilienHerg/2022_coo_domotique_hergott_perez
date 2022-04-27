@@ -3,92 +3,52 @@ import java.util.List;
 
 public class Telecommande {
 
-    private List<Lampe> lampes;
-    private List<Hifi> hifi;
-
+    private List<Appareil> appareils;
 
     public Telecommande() {
-        this.lampes = new ArrayList<Lampe>();
-        this.hifi = new ArrayList<Hifi>();
+        this.appareils = new ArrayList<Appareil>();
     }
 
-    public void ajouterLampe(Lampe l) {
-        this.lampes.add(l);
+    public void ajouterAppareil(Appareil a) {
+        this.appareils.add(a);
     }
 
-    public void activerLampe(int indiceLampe) {
-        if (indiceLampe < this.lampes.size()) {
-            this.lampes.get(indiceLampe).allumer();
+    public void activerAppareil(int indiceAppareil) {
+        if (indiceAppareil < this.appareils.size()) {
+            this.appareils.get(indiceAppareil).allumer();
         }
     }
 
-    public void desactiverLampe(int indiceLampe) {
-        if (indiceLampe < this.lampes.size()) {
-            this.lampes.get(indiceLampe).eteindre();
+    public void desactiverAppareil(int indiceAppareil) {
+        if (indiceAppareil < this.appareils.size()) {
+            this.appareils.get(indiceAppareil).eteindre();
         }
     }
 
     public void activerTout() {
-        if (!this.lampes.isEmpty()) {
-            for (int i = 0; i < this.lampes.size(); i++) {
-                this.activerLampe(i);
+        if (!this.appareils.isEmpty()) {
+            for (int i = 0; i < this.appareils.size(); i++) {
+                this.activerAppareil(i);
             }
         }
     }
 
     public String toString() {
         String s = "";
-        if (!this.lampes.isEmpty()) {
-            for (int i = 0; i < this.lampes.size(); i++) {
-                s += this.lampes.get(i).toString() + "\n";
-            }
-        }
-        if (!this.hifi.isEmpty()) {
-            for (int i = 0; i < this.hifi.size(); i++) {
-                s+= this.hifi.get(i).toString() + "\n";
+        if (!this.appareils.isEmpty()) {
+            for (int i = 0; i < this.appareils.size(); i++) {
+                s += this.appareils.get(i).toString() + "\n";
             }
         }
         return s;
     }
 
-    public Lampe getLampe(int inciceLampe){
-        if (inciceLampe < this.lampes.size()) {
-            return this.lampes.get(inciceLampe);
+    public Appareil getAppareil(int inciceAppareil){
+        if (inciceAppareil < this.appareils.size()) {
+            return this.appareils.get(inciceAppareil);
         } else {
             return null;
         }
     }
 
-    public void ajouterHifi(Hifi hifi) {
-        this.hifi.add(hifi);
-    }
-
-    public void allumerHifi(int indiceHifi) {
-        if (indiceHifi < this.hifi.size()) {
-            this.hifi.get(indiceHifi).allumer();
-        }
-    }
-
-    public void eteindreHifi(int indiceHifi) {
-        if (indiceHifi < this.hifi.size()) {
-            this.hifi.get(indiceHifi).eteindre();
-        }
-    }
-
-    public void allumerTout(int indiceHifi) {
-        if (!this.hifi.isEmpty()) {
-            for (int i = 0; i < this.hifi.size(); i++) {
-                this.allumerHifi(indiceHifi);
-            }
-        }
-    }
-
-    public Hifi getHifi(int indiceHifi) {
-        if (indiceHifi < this.hifi.size()) {
-            return this.hifi.get(indiceHifi);
-        } else {
-            return null;
-        }
-    }
-    
 }

@@ -17,10 +17,10 @@ public class TelecommandeTest {
         Lampe l = new Lampe("lampe1");
 
         // methode testee
-        t.ajouterLampe(l);
+        t.ajouterAppareil(l);
 
         // verification
-        boolean res = t.getLampe(0).isAllume();
+        boolean res = t.getAppareil(0).isAllume();
         assertFalse(res, "une nouvelle lampe devrait etre eteinte");
         assertEquals("lampe1: Off\n",t.toString(),"erreur methode");
     }
@@ -34,14 +34,14 @@ public class TelecommandeTest {
         Telecommande t = new Telecommande();
         Lampe l1 = new Lampe("lampe1");
         Lampe l2 = new Lampe("lampe2");
-        t.ajouterLampe(l1);
+        t.ajouterAppareil(l1);
 
         // methode testee
-        t.ajouterLampe(l2);
+        t.ajouterAppareil(l2);
 
         // verification
-        boolean res1 = t.getLampe(0).isAllume();
-        boolean res2 = t.getLampe(1).isAllume();
+        boolean res1 = t.getAppareil(0).isAllume();
+        boolean res2 = t.getAppareil(1).isAllume();
         assertFalse(res1, "une nouvelle lampe devrait etre eteinte");
         assertFalse(res2, "une nouvelle lampe devrait etre eteinte");
         assertEquals("lampe1: Off\nlampe2: Off\n", t.toString(), "erreur methode");
@@ -56,13 +56,13 @@ public class TelecommandeTest {
         // preparation des donnees
         Telecommande t = new Telecommande();
         Lampe l1 = new Lampe("lampe1");
-        t.ajouterLampe(l1);
+        t.ajouterAppareil(l1);
 
         // methode testee
-        t.activerLampe(0);
+        t.activerAppareil(0);
 
         // verification
-        boolean res = t.getLampe(0).isAllume();
+        boolean res = t.getAppareil(0).isAllume();
         assertTrue(res, "la lampe en position 0 devrait etre allumee");
         assertEquals("lampe1: On\n", t.toString(), "erreur methode");
     }
@@ -76,15 +76,15 @@ public class TelecommandeTest {
         Telecommande t = new Telecommande();
         Lampe l1 = new Lampe("lampe1");
         Lampe l2 = new Lampe("lampe2");
-        t.ajouterLampe(l1);
-        t.ajouterLampe(l2);
+        t.ajouterAppareil(l1);
+        t.ajouterAppareil(l2);
 
         // methode testee
-        t.activerLampe(1);
+        t.activerAppareil(1);
 
         // verification
-        boolean res1 = t.getLampe(0).isAllume();
-        boolean res2 = t.getLampe(1).isAllume();
+        boolean res1 = t.getAppareil(0).isAllume();
+        boolean res2 = t.getAppareil(1).isAllume();
         assertFalse(res1, "la lampe en position 0 devrait etre eteinte");
         assertTrue(res2, "la lampe en position 1 devrait etre allumee");
         assertEquals("lampe1: Off\nlampe2: On\n", t.toString(), "erreur methode");
@@ -96,10 +96,10 @@ public class TelecommandeTest {
         Telecommande t = new Telecommande();
 
         // methode testee
-        t.activerLampe(1);
+        t.activerAppareil(1);
 
         // verification
-        assertEquals(null, t.getLampe(1),"la telecommande devrait etre null");
+        assertEquals(null, t.getAppareil(1),"la telecommande devrait etre null");
     }
 
 
@@ -112,15 +112,15 @@ public class TelecommandeTest {
         Telecommande t = new Telecommande();
         Lampe l1 = new Lampe("lampe1");
         Lampe l2 = new Lampe("lampe2");
-        t.ajouterLampe(l1);
-        t.ajouterLampe(l2);
+        t.ajouterAppareil(l1);
+        t.ajouterAppareil(l2);
 
         // methode testee
         t.activerTout();
 
         // verificarion
-        boolean res1 = t.getLampe(0).isAllume();
-        boolean res2 = t.getLampe(1).isAllume();
+        boolean res1 = t.getAppareil(0).isAllume();
+        boolean res2 = t.getAppareil(1).isAllume();
 
         assertTrue(res1, "la lampe en position 0 devrait etre allumee");
         assertTrue(res2, "la lampe en position 1 devrait etre allumee");
