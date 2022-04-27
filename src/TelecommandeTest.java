@@ -95,10 +95,11 @@ public class TelecommandeTest {
         // preparation des donnees
         Telecommande t = new Telecommande();
 
+        // methode testee
+        t.activerLampe(1);
+
         // verification
-        assertThrows(NullPointerException.class, () -> {
-            t.activerLampe(2);
-        }, "la lampe existe sur la telecommande" );
+        assertEquals(null, t.getLampe(1),"la telecommande devrait etre null");
     }
 
 

@@ -1,44 +1,54 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Telecommande {
 
-    private Lampe[] lampes;
+    private List<Lampe> lampes;
 
     public Telecommande() {
-        this.lampes = null;
+        this.lampes = new ArrayList<Lampe>();
     }
 
     public void ajouterLampe(Lampe l) {
-        Lampe[] tab = new Lampe[this.lampes.length + 1];
-        if (this.lampes != null) {
-            int i = 0;
-            while (i < this.lampes.length) {
-               tab[i] = this.lampes[i];
-               i++;
-            }
-            tab[i] = l;
-        } else {
-            tab[0] = l;
-        }
-        this.lampes = tab;
+        this.lampes.add(l);
     }
 
     public void activerLampe(int indiceLampe) {
-        throw new Error (" code non ecrit ");
+        if (indiceLampe < this.lampes.size()) {
+            this.lampes.get(indiceLampe).allumer();
+        }
     }
 
     public void desactiverLampe(int indiceLampe) {
-        throw new Error (" code non ecrit ");
+        if (indiceLampe < this.lampes.size()) {
+            this.lampes.get(indiceLampe).eteindre();
+        }
     }
 
     public void activerTout() {
-        throw new Error (" code non ecrit ");
+        if (this.lampes != null) {
+            for (int i = 0; i < this.lampes.size(); i++) {
+                this.activerLampe(i);
+            }
+        }
     }
 
     public String toString() {
-        throw new Error (" code non ecrit ");
+        String s = "";
+        if (!this.lampes.isEmpty()) {
+            for (int i = 0; i < this.lampes.size(); i++) {
+                s += this.lampes.get(i).toString() + "\n";
+            }
+        }
+        return s;
     }
 
     public Lampe getLampe(int inciceLampe){
-        throw new Error (" code non ecrit ");
+        if (inciceLampe < this.lampes.size()) {
+            return this.lampes.get(inciceLampe);
+        } else {
+            return null;
+        }
     }
 
 }
