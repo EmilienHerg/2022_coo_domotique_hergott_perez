@@ -1,5 +1,4 @@
 public interface Appareil {
-
     /**
      * permet d allumer un appareil
      */
