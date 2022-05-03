@@ -1,3 +1,4 @@
+import thermos.Thermostat;
 
 public class Main {
 
@@ -20,6 +21,9 @@ public class Main {
 
 		ChemineeAdaptee c1 = new ChemineeAdaptee(new Cheminee());
 		t.ajouterAppareil(c1);
+
+		ThermostatAdapter ta = new ThermostatAdapter(new Thermostat());
+		t.ajouterAppareil(ta);
 
 
 		TelecommandeGraphique tg=new TelecommandeGraphique(t);

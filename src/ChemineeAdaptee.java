@@ -1,3 +1,4 @@
+
 public class ChemineeAdaptee implements Appareil {
 
     private Cheminee ch;
