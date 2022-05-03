@@ -15,4 +15,7 @@ public class ChemineeAdaptee implements Appareil {
         this.ch.changerIntensite(0);
     }
 
+    public String toString() {
+        return this.ch.toString();
+    }
 }

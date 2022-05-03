@@ -14,13 +14,14 @@ public class TelecommandeTest {
     public void test_ajout_lampe() {
         // preparation des donnees
         Telecommande t = new Telecommande();
-        Appareil l = new Lampe("lampe1");
+        Lampe l = new Lampe("lampe1");
 
         // methode testee
         t.ajouterAppareil(l);
 
         // verification
-        boolean res = (t.getAppareil(0).isAllume();
+        boolean res = t.getAppareil(0).isAllume();
+
         assertFalse(res, "une nouvelle lampe devrait etre eteinte");
         assertEquals("lampe1: Off\n",t.toString(),"erreur methode");
     }

@@ -51,4 +51,7 @@ public class Telecommande {
         }
     }
 
+    public int getNombre() {
+        return this.appareils.size();
+    }
 }
